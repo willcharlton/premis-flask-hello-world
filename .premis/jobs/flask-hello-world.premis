@@ -1,0 +1,51 @@
+job "flask-hello-world" {
+  datacenters = ["dc1"]  # Replace with your datacenter name
+
+  group "web" {
+    count = 1
+
+    task "flask" {
+      driver = "exec"
+
+      config {
+        command = "/usr/bin/python3"
+        args    = ["-m", "flask", "run", "--host=0.0.0.0"]
+
+        # Set environment variables
+        env = {
+          FLASK_APP = "/local/hello.py"
+          FLASK_ENV = "development"
+        }
+      }
+
+      resources {
+        cpu    = 500
+        memory = 256
+      }
+
+      service {
+        name = "flask-hello-world"
+        port = "http"
+
+        check {
+          name     = "alive"
+          type     = "http"
+          path     = "/"
+          interval = "10s"
+          timeout  = "2s"
+        }
+      }
+
+      artifact {
+        source      = "https://raw.githubusercontent.com/your-repo/flask-hello-world/main/hello.py"
+        destination = "local/"
+      }
+    }
+
+    network {
+      port "http" {
+        static = 5000  # Expose the Flask app on port 5000
+      }
+    }
+  }
+}
