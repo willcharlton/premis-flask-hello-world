@@ -44,7 +44,7 @@ job "flask-hello-world" {
 
     network {
       port "http" {
-        static = 5000  # Expose the Flask app on port 5000
+        static = 5000  # flask app port
       }
     }
   }
