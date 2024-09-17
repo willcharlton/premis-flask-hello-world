@@ -1,51 +1,49 @@
 {
-  "job": {
-    "flask-hello-world": {
-      "datacenters": ["dc1"],
-      "group": {
-        "web": {
-          "count": 1,
-          "task": {
-            "flask": {
-              "driver": "exec",
-              "config": {
-                "command": "/usr/bin/python3",
-                "args": ["-m", "flask", "run", "--host=0.0.0.0"],
-                "env": {
-                  "FLASK_APP": "/local/hello.py",
-                  "FLASK_ENV": "development"
-                }
-              },
-              "resources": {
-                "cpu": 500,
-                "memory": 256
-              },
-              "service": {
-                "name": "flask-hello-world",
-                "port": "http",
-                "check": {
-                  "name": "alive",
-                  "type": "http",
-                  "path": "/",
-                  "interval": "10s",
-                  "timeout": "2s"
-                }
-              },
-              "artifact": {
-                "source": "https://raw.githubusercontent.com/your-repo/flask-hello-world/main/hello.py",
-                "destination": "local/"
-              }
-            }
-          },
-          "network": {
-            "port": {
-              "http": {
-                "static": 5000
-              }
-            }
+  "Job": {
+    "ID": "flask-hello-world",
+    "Name": "flask-hello-world",
+    "Datacenters": ["dc1"],
+    "TaskGroups": [{
+      "Name": "flask-web-server",
+      "Count": 1,
+      "Tasks": [{
+        "Name": "service-runner",
+        "Driver": "exec",
+        "Config": {
+          "command": "/usr/bin/python3",
+          "args": ["-m", "flask", "run", "--host=0.0.0.0"],
+          "env": {
+            "FLASK_APP": "/local/hello.py",
+            "FLASK_ENV": "development"
           }
-        }
-      }
-    }
+        },
+        "Resources": {
+          "CPU": 500,
+          "MemoryMB": 256
+        },
+        "Services": [{
+          "Name": "flask-hello-world",
+          "PortLabel": "http",
+          "Checks": [{
+            "Name": "alive",
+            "Type": "http",
+            "Path": "/",
+            "Interval": "10s",
+            "Timeout": "2s"
+          }]
+        }],
+        "Artifacts": [{
+          "Source": "https://raw.githubusercontent.com/your-repo/flask-hello-world/main/hello.py",
+          "Destination": "local/"
+        }]
+      }],
+      "Networks": [{
+        "DynamicPorts": [],
+        "ReservedPorts": [{
+          "Label": "http",
+          "Value": 5000
+        }]
+      }]
+    }]
   }
 }
