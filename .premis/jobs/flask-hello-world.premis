@@ -27,7 +27,7 @@
               "args": ["-m", "venv", "/local/.venv"]
             },
             "Resources": {
-              "CPU": 100,
+              "CPU": 200,
               "MemoryMB": 128
             }
           },
