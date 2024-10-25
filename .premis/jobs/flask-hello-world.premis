@@ -6,44 +6,74 @@
     "TaskGroups": [{
       "Name": "flask-web-server",
       "Count": 1,
-      "Tasks": [{
-        "Name": "service-runner",
-        "Driver": "exec",
-        "Config": {
-          "command": "/usr/bin/python3",
-          "args": ["-m", "flask", "run", "--host=0.0.0.0"],
-          "env": {
-            "FLASK_APP": "/local/hello.py",
-            "FLASK_ENV": "development"
+      "Tasks": [
+        {
+          "Name": "create-virtual-environment",
+          "Driver": "exec",
+          "Config": {
+            "command": "/usr/bin/python3",
+            "args": ["-m", "venv", "/local/.venv"]
+          },
+          "Resources": {
+            "CPU": 100,
+            "MemoryMB": 128
           }
         },
-        "Resources": {
-          "CPU": 500,
-          "MemoryMB": 256
+        {
+          "Name": "install-dependencies",
+          "Driver": "exec",
+          "Config": {
+            "command": "/local/.venv/bin/python",
+            "args": ["-m", "pip", "install", "-r", "/local/requirements.txt"]
+          },
+          "Artifacts": [{
+            "Source": "https://raw.githubusercontent.com/willcharlton/premis-flask-hello-world/refs/heads/main/requirements.txt",
+            "Destination": "local/"
+          }],
+          "Resources": {
+            "CPU": 100,
+            "MemoryMB": 128
+          }
         },
-        "Services": [{
-          "Name": "flask-hello-world",
-          "PortLabel": "http",
-          "Checks": [{
-            "Name": "alive",
-            "Type": "http",
-            "Path": "/",
-            "Interval": 10000000000,
-            "Timeout": 2000000000
+        {
+          "Name": "service-runner",
+          "Driver": "exec",
+          "Config": {
+            "command": "/local/.venv/bin/python",
+            "args": ["-m", "flask", "run", "--host=0.0.0.0"],
+            "env": {
+              "FLASK_APP": "/local/hello.py",
+              "FLASK_ENV": "development"
+            }
+          },
+          "Artifacts": [{
+            "Source": "https://raw.githubusercontent.com/willcharlton/premis-flask-hello-world/refs/heads/main/hello.py",
+            "Destination": "local/"
+          }],
+          "Resources": {
+            "CPU": 500,
+            "MemoryMB": 256
+          },
+          "Services": [{
+            "Name": "flask-hello-world",
+            "PortLabel": "http",
+            "Checks": [{
+              "Name": "alive",
+              "Type": "http",
+              "Path": "/",
+              "Interval": 10000000000,
+              "Timeout": 2000000000
+            }]
+          }],
+          "Networks": [{
+            "DynamicPorts": [],
+            "ReservedPorts": [{
+              "Label": "http",
+              "Value": 5000
+            }]
           }]
-        }],
-        "Artifacts": [{
-          "Source": "https://raw.githubusercontent.com/your-repo/flask-hello-world/main/hello.py",
-          "Destination": "local/"
-        }]
-      }],
-      "Networks": [{
-        "DynamicPorts": [],
-        "ReservedPorts": [{
-          "Label": "http",
-          "Value": 5000
-        }]
-      }]
+        }
+      ]
     }]
   }
 }
