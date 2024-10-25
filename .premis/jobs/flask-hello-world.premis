@@ -2,7 +2,7 @@
   "Job": {
     "ID": "flask-hello-world",
     "Name": "flask-hello-world",
-    "Datacenters": ["dc1"],
+    "Datacenters": ["valhalla"],
     "TaskGroups": [
       {
         "Name": "flask-web-server",
