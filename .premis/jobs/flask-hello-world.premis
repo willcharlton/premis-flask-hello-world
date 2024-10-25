@@ -9,13 +9,13 @@
         "Count": 1,
         "Networks": [
           {
-            "DynamicPorts": [],
-            "ReservedPorts": [
+            "DynamicPorts": [
               {
                 "Label": "http",
                 "Value": 5000
               }
-            ]
+            ],
+            "ReservedPorts": []
           }
         ],
         "Tasks": [
