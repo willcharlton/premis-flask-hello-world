@@ -21,7 +21,7 @@
         "Tasks": [
           {
             "Name": "create-virtual-environment",
-            "Driver": "exec",
+            "Driver": "raw_exec",
             "Config": {
               "command": "/usr/bin/python3",
               "args": ["-m", "venv", "/local/.venv"]
@@ -33,7 +33,7 @@
           },
           {
             "Name": "install-dependencies",
-            "Driver": "exec",
+            "Driver": "raw_exec",
             "Config": {
               "command": "/local/.venv/bin/python",
               "args": ["-m", "pip", "install", "-r", "/local/requirements.txt"]
@@ -51,7 +51,7 @@
           },
           {
             "Name": "service-runner",
-            "Driver": "exec",
+            "Driver": "raw_exec",
             "Config": {
               "command": "/local/.venv/bin/python",
               "args": ["-m", "flask", "run", "--host=0.0.0.0"],
