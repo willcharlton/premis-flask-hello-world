@@ -29,8 +29,8 @@
             },
             "Artifacts": [
               {
-                "Source": "https://raw.githubusercontent.com/willcharlton/premis-flask-hello-world/main/requirements.txt",
-                "Destination": "local/"
+                "GetterSource": "https://raw.githubusercontent.com/willcharlton/premis-flask-hello-world/main/requirements.txt",
+                "RelativeDest": "local/"
               }
             ],
             "Resources": {
@@ -51,8 +51,8 @@
             },
             "Artifacts": [
               {
-                "Source": "https://raw.githubusercontent.com/willcharlton/premis-flask-hello-world/main/hello.py",
-                "Destination": "local/"
+                "GetterSource": "https://raw.githubusercontent.com/willcharlton/premis-flask-hello-world/main/hello.py",
+                "RelativeDest": "local/"
               }
             ],
             "Resources": {
