@@ -24,7 +24,8 @@
             "Driver": "raw_exec",
             "Config": {
               "command": "sudo",
-              "args": ["apt", "update"]
+              "args": ["apt", "update"],
+              "KillTimeout": 60000000000
             },
             "Resources": {
               "CPU": 400,
@@ -37,7 +38,8 @@
             "Config": {
               "command": "sudo",
               "args": ["apt", "install", "-y", "python3-pip"],
-              "timeout": 60000000000
+              "timeout": 60000000000,
+              "KillTimeout": 60000000000
             },
             "Resources": {
               "CPU": 500,
@@ -56,7 +58,8 @@
             "Config": {
               "command": "/usr/bin/python3",
               "args": ["-m", "venv", "${NOMAD_ALLOC_DIR}/.venv"],
-              "timeout": 60000000000
+              "timeout": 60000000000,
+              "KillTimeout": 60000000000
             },
             "Resources": {
               "CPU": 400,
@@ -75,7 +78,8 @@
             "Config": {
               "command": "/local/.venv/bin/python",
               "args": ["-m", "pip", "install", "-r", "${NOMAD_ALLOC_DIR}/requirements.txt"],
-              "timeout": 60000000000
+              "timeout": 60000000000,
+              "KillTimeout": 60000000000
             },
             "Artifacts": [
               {
@@ -102,7 +106,8 @@
               "args": [
                 "-c",
                 "FLASK_APP=${NOMAD_ALLOC_DIR}/hello.py FLASK_ENV=development ${NOMAD_ALLOC_DIR}/.venv/bin/python -m flask run --host=0.0.0.0"
-              ]
+              ],
+              "KillTimeout": 60000000000
             },
             "Artifacts": [
               {
