@@ -24,7 +24,7 @@
             "Driver": "raw_exec",
             "Config": {
               "command": "/usr/bin/python3",
-              "args": ["-m", "venv", "/local/.venv"]
+              "args": ["-m", "venv", "${NOMAD_ALLOC_DIR}/.venv"]
             },
             "Resources": {
               "CPU": 200,
@@ -36,7 +36,7 @@
             "Driver": "raw_exec",
             "Config": {
               "command": "/local/.venv/bin/python",
-              "args": ["-m", "pip", "install", "-r", "/local/requirements.txt"]
+              "args": ["-m", "pip", "install", "-r", "${NOMAD_ALLOC_DIR}/requirements.txt"]
             },
             "Artifacts": [
               {
@@ -62,13 +62,13 @@
               "command": "/bin/sh",
               "args": [
                 "-c",
-                "FLASK_APP=/local/hello.py FLASK_ENV=development /local/.venv/bin/python -m flask run --host=0.0.0.0"
+                "FLASK_APP=${NOMAD_ALLOC_DIR}/hello.py FLASK_ENV=development ${NOMAD_ALLOC_DIR}/.venv/bin/python -m flask run --host=0.0.0.0"
               ]
             },
             "Artifacts": [
               {
                 "GetterSource": "https://raw.githubusercontent.com/willcharlton/premis-flask-hello-world/main/hello.py",
-                "RelativeDest": "local/"
+                "RelativeDest": "${NOMAD_ALLOC_DIR}"
               }
             ],
             "Resources": {
