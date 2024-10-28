@@ -20,16 +20,34 @@
         ],
         "Tasks": [
           {
+            "Name": "apt-update",
+            "Driver": "raw_exec",
+            "Config": {
+              "command": "sudo",
+              "args": ["apt", "update"]
+            },
+            "Resources": {
+              "CPU": 100,
+              "MemoryMB": 64
+            }
+          },
+          {
             "Name": "install-pip",
             "Driver": "raw_exec",
             "Config": {
-              "command": "/usr/bin/python3",
-              "args": ["-m", "ensurepip", "--upgrade"]
+              "command": "sudo",
+              "args": ["apt", "install", "-y", "python3-pip"]
             },
             "Resources": {
               "CPU": 100,
               "MemoryMB": 128
-            }
+            },
+            "DependsOn": [
+              {
+                "Task": "apt-update",
+                "Hard": true
+              }
+            ]
           },
           {
             "Name": "create-virtual-environment",
@@ -59,7 +77,7 @@
             "Artifacts": [
               {
                 "GetterSource": "https://raw.githubusercontent.com/willcharlton/premis-flask-hello-world/main/requirements.txt",
-                "RelativeDest": "local/"
+                "RelativeDest": "${NOMAD_ALLOC_DIR}"
               }
             ],
             "Resources": {
