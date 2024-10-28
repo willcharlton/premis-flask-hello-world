@@ -27,8 +27,8 @@
               "args": ["apt", "update"]
             },
             "Resources": {
-              "CPU": 800,
-              "MemoryMB": 1028
+              "CPU": 400,
+              "MemoryMB": 512
             }
           },
           {
@@ -40,7 +40,7 @@
             },
             "Resources": {
               "CPU": 500,
-              "MemoryMB": 1028
+              "MemoryMB": 512
             },
             "DependsOn": [
               {
@@ -57,8 +57,8 @@
               "args": ["-m", "venv", "${NOMAD_ALLOC_DIR}/.venv"]
             },
             "Resources": {
-              "CPU": 500,
-              "MemoryMB": 1028
+              "CPU": 400,
+              "MemoryMB": 256
             },
             "DependsOn": [
               {
@@ -81,8 +81,8 @@
               }
             ],
             "Resources": {
-              "CPU": 500,
-              "MemoryMB": 1028
+              "CPU": 600,
+              "MemoryMB": 1024
             },
             "DependsOn": [
               {
@@ -108,8 +108,8 @@
               }
             ],
             "Resources": {
-              "CPU": 500,
-              "MemoryMB": 1028
+              "CPU": 1000,
+              "MemoryMB": 1024
             },
             "Services": [
               {
