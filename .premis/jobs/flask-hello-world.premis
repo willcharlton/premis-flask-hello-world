@@ -55,10 +55,10 @@
             "Config": {
               "command": "/local/.venv/bin/python",
               "args": ["-m", "flask", "run", "--host=0.0.0.0"],
-              "env": {
-                "FLASK_APP": "/local/hello.py",
-                "FLASK_ENV": "development"
-              }
+              "env": [
+                "FLASK_APP=/local/hello.py",
+                "FLASK_ENV=development"
+              ]
             },
             "Artifacts": [
               {
