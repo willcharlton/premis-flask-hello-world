@@ -36,7 +36,8 @@
             "Driver": "raw_exec",
             "Config": {
               "command": "sudo",
-              "args": ["apt", "install", "-y", "python3-pip"]
+              "args": ["apt", "install", "-y", "python3-pip"],
+              "timeout": 60000000000
             },
             "Resources": {
               "CPU": 500,
@@ -54,7 +55,8 @@
             "Driver": "raw_exec",
             "Config": {
               "command": "/usr/bin/python3",
-              "args": ["-m", "venv", "${NOMAD_ALLOC_DIR}/.venv"]
+              "args": ["-m", "venv", "${NOMAD_ALLOC_DIR}/.venv"],
+              "timeout": 60000000000
             },
             "Resources": {
               "CPU": 400,
@@ -72,7 +74,8 @@
             "Driver": "raw_exec",
             "Config": {
               "command": "/local/.venv/bin/python",
-              "args": ["-m", "pip", "install", "-r", "${NOMAD_ALLOC_DIR}/requirements.txt"]
+              "args": ["-m", "pip", "install", "-r", "${NOMAD_ALLOC_DIR}/requirements.txt"],
+              "timeout": 60000000000
             },
             "Artifacts": [
               {
