@@ -20,6 +20,18 @@
         ],
         "Tasks": [
           {
+            "Name": "install-pip",
+            "Driver": "raw_exec",
+            "Config": {
+              "command": "/usr/bin/python3",
+              "args": ["-m", "ensurepip", "--upgrade"]
+            },
+            "Resources": {
+              "CPU": 100,
+              "MemoryMB": 128
+            }
+          },
+          {
             "Name": "create-virtual-environment",
             "Driver": "raw_exec",
             "Config": {
@@ -29,7 +41,13 @@
             "Resources": {
               "CPU": 200,
               "MemoryMB": 128
-            }
+            },
+            "DependsOn": [
+              {
+                "Task": "install-pip",
+                "Hard": true
+              }
+            ]
           },
           {
             "Name": "install-dependencies",
