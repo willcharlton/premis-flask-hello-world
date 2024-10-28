@@ -27,7 +27,7 @@
               "args": ["apt", "update"]
             },
             "Resources": {
-              "CPU": 500,
+              "CPU": 1000,
               "MemoryMB": 1028
             }
           },
