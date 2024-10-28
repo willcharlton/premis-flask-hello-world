@@ -47,7 +47,13 @@
             "Resources": {
               "CPU": 100,
               "MemoryMB": 128
-            }
+            },
+            "DependsOn": [
+              {
+                "Task": "create-virtual-environment",
+                "Hard": true
+              }
+            ]
           },
           {
             "Name": "service-runner",
@@ -84,6 +90,12 @@
                     "Timeout": 2000000000
                   }
                 ]
+              }
+            ],
+            "DependsOn": [
+              {
+                "Task": "install-dependencies",
+                "Hard": true
               }
             ]
           }
