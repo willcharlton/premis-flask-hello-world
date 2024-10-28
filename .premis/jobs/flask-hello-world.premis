@@ -59,11 +59,10 @@
             "Name": "service-runner",
             "Driver": "raw_exec",
             "Config": {
-              "command": "/local/.venv/bin/python",
-              "args": ["-m", "flask", "run", "--host=0.0.0.0"],
-              "env": [
-                "FLASK_APP=/local/hello.py",
-                "FLASK_ENV=development"
+              "command": "/bin/sh",
+              "args": [
+                "-c",
+                "FLASK_APP=/local/hello.py FLASK_ENV=development /local/.venv/bin/python -m flask run --host=0.0.0.0"
               ]
             },
             "Artifacts": [
