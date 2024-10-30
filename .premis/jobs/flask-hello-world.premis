@@ -139,6 +139,7 @@
                     "Name": "alive",
                     "Type": "http",
                     "Path": "/",
+                    "Port": 5000,
                     "Interval": 10000000000,
                     "Timeout": 2000000000
                   }
