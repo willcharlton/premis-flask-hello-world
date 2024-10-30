@@ -54,10 +54,10 @@
               }
             ],
             "RestartPolicy": {
-              "Attempts": 2,
+              "Attempts": 5,
               "Interval": 1800000000000,
               "Delay": 15000000000,
-              "Mode": "fail",
+              "Mode": "delay",
               "RenderTemplates": false
             }
           },
