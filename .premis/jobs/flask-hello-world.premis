@@ -76,7 +76,7 @@
             "Name": "install-dependencies",
             "Driver": "raw_exec",
             "Config": {
-              "command": "/local/.venv/bin/python",
+              "command": "${NOMAD_ALLOC_DIR}/.venv/bin/python",
               "args": ["-m", "pip", "install", "-r", "${NOMAD_ALLOC_DIR}/requirements.txt"]
             },
             "KillTimeout": 60000000000,
