@@ -26,11 +26,7 @@
               "command": "sudo",
               "args": ["apt", "update"]
             },
-            "KillTimeout": 60000000000,
-            "Resources": {
-              "CPU": 400,
-              "MemoryMB": 512
-            }
+            "KillTimeout": 60000000000
           },
           {
             "Name": "install-pip",
