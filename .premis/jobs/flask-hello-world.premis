@@ -26,7 +26,7 @@
               "command": "sudo",
               "args": ["DEBIAN_FRONTEND=noninteractive", "apt", "update", "-y"]
             },
-            "KillTimeout": 60000000000
+            "KillTimeout": 600000000000
           },
           {
             "Name": "install-pip",
