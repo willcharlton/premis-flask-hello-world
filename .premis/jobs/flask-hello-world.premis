@@ -24,7 +24,7 @@
             "Driver": "raw_exec",
             "Config": {
               "command": "sudo",
-              "args": ["apt", "update"]
+              "args": ["DEBIAN_FRONTEND=noninteractive", "apt", "update", "-y"]
             },
             "KillTimeout": 60000000000
           },
