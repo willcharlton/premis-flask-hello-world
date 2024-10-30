@@ -27,6 +27,11 @@
               "command": "sudo",
               "args": ["DEBIAN_FRONTEND=noninteractive", "apt", "update", "-y"]
             },
+            "Resources": {
+              "CPU": 500,
+              "MemoryMB": 512,
+              "MemoryMax": -1
+            },
             "KillTimeout": 600000000000
           },
           {
