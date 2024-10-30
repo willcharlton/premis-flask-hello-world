@@ -138,6 +138,7 @@
                   {
                     "Name": "alive",
                     "Type": "http",
+                    "PortLabel": "http",
                     "Path": "/",
                     "Port": 5000,
                     "Interval": 10000000000,
