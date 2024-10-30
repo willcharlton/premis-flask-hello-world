@@ -52,7 +52,14 @@
                 "Task": "apt-update",
                 "Hard": true
               }
-            ]
+            ],
+            "RestartPolicy": {
+              "Attempts": 2,
+              "Interval": 1800000000000,
+              "Delay": 15000000000,
+              "Mode": "fail",
+              "RenderTemplates": false
+            }
           },
           {
             "Name": "create-virtual-environment",
