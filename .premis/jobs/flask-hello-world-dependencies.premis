@@ -1,11 +1,12 @@
 {
   "Job": {
-    "ID": "flask-hello-world",
-    "Name": "flask-hello-world",
+    "ID": "flask-hello-world-dependencies",
+    "Name": "flask-hello-world-dependencies",
     "Datacenters": ["valhalla"],
+    "Type": "batch",
     "TaskGroups": [
       {
-        "Name": "flask-web-server",
+        "Name": "flask-web-server-dependencies",
         "Count": 1,
         "Mode": "bridge",
         "Networks": [
