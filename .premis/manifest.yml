@@ -3,5 +3,8 @@ jobs:
   - name: Flask Hello World
     file: jobs/flask-hello-world.premis
 
-  - name: Avahi
+  - name: Avahi MDNS
     file: jobs/mdns.premis
+
+  - name: Node Environment
+    file: jobs/env.premis
