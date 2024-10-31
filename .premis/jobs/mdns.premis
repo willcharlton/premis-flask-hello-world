@@ -3,7 +3,7 @@
       "ID": "avahi-mdns",
       "Name": "avahi-mdns",
       "Datacenters": ["valhalla"],
-      "Type": "system",
+      "Type": "service",
       "TaskGroups": [
         {
           "Name": "avahi-taskgroup",
