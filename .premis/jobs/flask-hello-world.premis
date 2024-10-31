@@ -130,7 +130,7 @@
             ],
             "Resources": {
               "CPU": 200,
-              "MemoryMB": 512,
+              "MemoryMB": 1028,
               "MemoryMax": -1
             },
             "Services": [
