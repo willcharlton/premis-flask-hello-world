@@ -2,3 +2,6 @@
 jobs:
   - name: Flask Hello World
     file: jobs/flask-hello-world.premis
+
+  - name: Avahi
+    file: jobs/mdns.premis

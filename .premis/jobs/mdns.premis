@@ -1,0 +1,53 @@
+{
+  "Job": {
+    "ID": "avahi-mdns",
+    "Name": "avahi-mdns",
+    "Datacenters": ["valhalla"],
+    "Type": "system",
+    "TaskGroups": [
+      {
+        "Name": "avahi-taskgroup",
+        "Count": 1,
+        "Tasks": [
+          {
+            "Name": "mdns-service",
+            "Driver": "raw_exec",
+            "Config": {
+              "command": "/usr/sbin/avahi-daemon",
+              "args": ["--no-drop-root", "--debug"]
+            },
+            "Resources": {
+              "CPU": 100,
+              "MemoryMB": 128
+            },
+            "Services": [
+              {
+                "Name": "avahi-mdns",
+                "PortLabel": "mdns",
+                "Checks": [
+                  {
+                    "Name": "avahi-alive",
+                    "Type": "tcp",
+                    "PortLabel": "mdns",
+                    "Interval": 10000000000,
+                    "Timeout": 2000000000
+                  }
+                ]
+              }
+            ],
+            "Networks": [
+              {
+                "ReservedPorts": [
+                  {
+                    "Label": "mdns",
+                    "Value": 5353
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
