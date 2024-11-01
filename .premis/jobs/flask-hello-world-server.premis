@@ -11,13 +11,13 @@
         "Mode": "bridge",
         "Networks": [
           {
-            "DynamicPorts": [
+            "DynamicPorts": [],
+            "ReservedPorts": [
               {
                 "Label": "http",
                 "Value": 5000
               }
-            ],
-            "ReservedPorts": []
+            ]
           }
         ],
         "Tasks": [
