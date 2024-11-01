@@ -48,13 +48,22 @@
                 "Name": "flask-hello-world",
                 "PortLabel": "http",
                 "Provider": "nomad",
-                "Checks": []
-              }
-            ],
-            "DependsOn": [
-              {
-                "Task": "install-dependencies",
-                "Hard": true
+                "Checks": [
+                  {
+                    "Name": "alive",
+                    "Type": "http",
+                    "PortLabel": "http",
+                    "Path": "/",
+                    "Port": 5000,
+                    "Interval": 30000000000,
+                    "Timeout": 50000000000
+                  }
+                ],
+                "CheckRestart": {
+                  "Grace": 20000000000,
+                  "Limit": 3,
+                  "IgnoreWarnings": false
+                }
               }
             ]
           }
