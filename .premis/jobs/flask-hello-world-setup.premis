@@ -67,7 +67,7 @@
             "Driver": "raw_exec",
             "Config": {
               "command": "python3",
-              "args": ["-m", "pip", "install", "-r", "${NOMAD_ALLOC_DIR}/requirements.txt"]
+              "args": ["-m", "pip", "install", "--break-system-packages", "-r", "${NOMAD_ALLOC_DIR}/requirements.txt"]
             },
             "KillTimeout": 60000000000,
             "Artifacts": [
