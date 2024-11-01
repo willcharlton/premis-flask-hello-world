@@ -138,11 +138,7 @@
                 "Name": "flask-hello-world",
                 "PortLabel": "http",
                 "Provider": "nomad",
-                "CheckRestart": {
-                  "Grace": 20000000000,
-                  "Limit": 3,
-                  "IgnoreWarnings": false
-                }
+                "Checks": []
               }
             ],
             "DependsOn": [
