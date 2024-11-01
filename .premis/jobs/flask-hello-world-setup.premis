@@ -83,7 +83,7 @@
             },
             "DependsOn": [
               {
-                "Task": "create-virtual-environment",
+                "Task": "install-pip",
                 "Hard": true
               }
             ]
