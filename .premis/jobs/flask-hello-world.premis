@@ -3,6 +3,7 @@
     "ID": "flask-hello-world",
     "Name": "flask-hello-world",
     "Datacenters": ["valhalla"],
+    "Type": "service",
     "TaskGroups": [
       {
         "Name": "flask-web-server",
@@ -32,7 +33,7 @@
               "MemoryMB": 128,
               "MemoryMax": -1
             },
-            "KillOnComplete": true,
+            "KillOnComplete": false,
             "KillTimeout": 600000000000
           },
           {
@@ -42,7 +43,7 @@
               "command": "sudo",
               "args": ["apt", "install", "-y", "python3-pip"]
             },
-            "KillOnComplete": true,
+            "KillOnComplete": false,
             "KillTimeout": 60000000000,
             "Resources": {
               "CPU": 100,
@@ -70,7 +71,7 @@
               "command": "/usr/bin/python3",
               "args": ["-m", "venv", "${NOMAD_ALLOC_DIR}/.venv"]
             },
-            "KillOnComplete": true,
+            "KillOnComplete": false,
             "KillTimeout": 60000000000,
             "Resources": {
               "CPU": 100,
@@ -91,7 +92,7 @@
               "command": "${NOMAD_ALLOC_DIR}/.venv/bin/python",
               "args": ["-m", "pip", "install", "-r", "${NOMAD_ALLOC_DIR}/requirements.txt"]
             },
-            "KillOnComplete": true,
+            "KillOnComplete": false,
             "KillTimeout": 60000000000,
             "Artifacts": [
               {
