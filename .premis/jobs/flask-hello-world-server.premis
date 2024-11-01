@@ -1,0 +1,65 @@
+{
+  "Job": {
+    "ID": "flask-hello-world",
+    "Name": "flask-hello-world",
+    "Datacenters": ["valhalla"],
+    "Type": "service",
+    "TaskGroups": [
+      {
+        "Name": "flask-web-server",
+        "Count": 1,
+        "Mode": "bridge",
+        "Networks": [
+          {
+            "DynamicPorts": [
+              {
+                "Label": "http",
+                "Value": 5000
+              }
+            ],
+            "ReservedPorts": []
+          }
+        ],
+        "Tasks": [
+          {
+            "Name": "service-runner",
+            "Driver": "raw_exec",
+            "Config": {
+              "command": "/bin/sh",
+              "args": [
+                "-c",
+                "FLASK_APP=${NOMAD_ALLOC_DIR}/hello.py FLASK_ENV=development ${NOMAD_ALLOC_DIR}/.venv/bin/python -m flask run --host=0.0.0.0"
+              ]
+            },
+            "KillTimeout": 60000000000,
+            "Artifacts": [
+              {
+                "GetterSource": "https://raw.githubusercontent.com/willcharlton/premis-flask-hello-world/main/hello.py",
+                "RelativeDest": "${NOMAD_ALLOC_DIR}"
+              }
+            ],
+            "Resources": {
+              "CPU": 200,
+              "MemoryMB": 1028,
+              "MemoryMax": -1
+            },
+            "Services": [
+              {
+                "Name": "flask-hello-world",
+                "PortLabel": "http",
+                "Provider": "nomad",
+                "Checks": []
+              }
+            ],
+            "DependsOn": [
+              {
+                "Task": "install-dependencies",
+                "Hard": true
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

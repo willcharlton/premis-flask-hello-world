@@ -1,7 +1,10 @@
 ---
 jobs:
-  - name: Flask Hello World
-    file: jobs/flask-hello-world.premis
+  - name: Flask Hello World Setup
+    file: jobs/flask-hello-world-setup.premis
+
+  - name: Flask Hello World Server
+    file: jobs/flask-hello-world-server.premis
 
   - name: Avahi MDNS
     file: jobs/mdns.premis
