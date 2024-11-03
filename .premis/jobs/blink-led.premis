@@ -18,7 +18,7 @@
               "ReservedPorts": [
                 {
                   "Label": "http",
-                  "Value": 8080
+                  "Value": 5005
                 }
               ]
             }
@@ -54,7 +54,7 @@
                       "Type": "http",
                       "Path": "/health",
                       "PortLabel": "http",
-                      "Port": 8080,
+                      "Port": 5005,
                       "Interval": 10000000000,
                       "Timeout": 2000000000
                     }

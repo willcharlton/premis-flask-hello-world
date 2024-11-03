@@ -34,7 +34,7 @@ class HealthCheckHandler(http.server.BaseHTTPRequestHandler):
             self.end_headers()
 
 def start_http_server():
-    server_address = ('', 8080)
+    server_address = ('', 5005)
     httpd = http.server.HTTPServer(server_address, HealthCheckHandler)
     httpd.serve_forever()
 
