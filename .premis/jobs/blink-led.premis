@@ -32,22 +32,32 @@
               "MemoryMB": 128
             },
             "Services": [
-              {
-                "Name": "blink-led-service",
-                "Provider": "nomad",
-                "Checks": [
+                {
+                  "Name": "blink-led-service",
+                  "PortLabel": "http",
+                  "Provider": "nomad",
+                  "Checks": [
                     {
-                        "Name": "led-check",
-                        "Type": "exec",
-                        "Command": "/usr/bin/pidof",
-                        "Args": ["-x", "blink-led.py"],
-                        "InitialStatus": "passing",
-                        "Interval": 30000000000,
-                        "Timeout": 5000000000
-                      }
+                      "Name": "http-check",
+                      "Type": "http",
+                      "Path": "/health",
+                      "PortLabel": "http",
+                      "Interval": 10000000000,
+                      "Timeout": 2000000000
+                    }
                   ]
-              }
-            ]
+                }
+              ],
+              "Networks": [
+                {
+                  "ReservedPorts": [
+                    {
+                      "Label": "http",
+                      "Value": 8080
+                    }
+                  ]
+                }
+              ]
           }
         ]
       }
