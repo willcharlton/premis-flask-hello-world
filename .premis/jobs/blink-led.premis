@@ -37,16 +37,14 @@
                 "Provider": "nomad",
                 "Checks": [
                     {
-                      "Name": "pid-check",
-                      "Type": "script",
-                      "Command": "/bin/sh",
-                      "Args": [
-                        "-c",
-                        "if [ -f /tmp/blink_led.pid ] && ps -p $(cat /tmp/blink_led.pid) > /dev/null; then exit 0; else exit 2; fi"
-                      ],
-                      "Interval": 10000000000,
-                      "Timeout": 2000000000
-                    }
+                        "Name": "led-check",
+                        "Type": "exec",
+                        "Command": "/usr/bin/pidof",
+                        "Args": ["-x", "blink-led.py"],
+                        "InitialStatus": "passing",
+                        "Interval": 30000000000,
+                        "Timeout": 5000000000
+                      }
                   ]
               }
             ]
