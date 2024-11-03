@@ -11,6 +11,18 @@
         {
           "Name": "led-taskgroup",
           "Count": 1,
+          "Mode": "bridge",
+          "Networks": [
+            {
+              "DynamicPorts": [],
+              "ReservedPorts": [
+                {
+                  "Label": "http",
+                  "Value": 8080
+                }
+              ]
+            }
+          ],
           "Tasks": [
             {
               "Name": "blink-led-task",
