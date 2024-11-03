@@ -1,37 +1,37 @@
 {
-  "Job": {
-    "ID": "blink-led-job",
-    "Name": "blink-led-job",
-    "Datacenters": ["valhalla"],
-    "Type": "service",
-    "Meta": {
-      "run_uuid": "${uuidv4()}"
-    },
-    "TaskGroups": [
-      {
-        "Name": "led-taskgroup",
-        "Count": 1,
-        "Tasks": [
-          {
-            "Name": "blink-led-task",
-            "Driver": "raw_exec",
-            "Config": {
-              "command": "python3",
-              "args": [
-                "${NOMAD_ALLOC_DIR}/blink_led.py"
-              ]
-            },
-            "Artifacts": [
-              {
-                "GetterSource": "https://raw.githubusercontent.com/willcharlton/premis-flask-hello-world/main/blink_led.py",
-                "RelativeDest": "${NOMAD_ALLOC_DIR}"
-              }
-            ],
-            "Resources": {
-              "CPU": 100,
-              "MemoryMB": 128
-            },
-            "Services": [
+    "Job": {
+      "ID": "blink-led-job",
+      "Name": "blink-led-job",
+      "Datacenters": ["valhalla"],
+      "Type": "service",
+      "Meta": {
+        "run_uuid": "${uuidv4()}"
+      },
+      "TaskGroups": [
+        {
+          "Name": "led-taskgroup",
+          "Count": 1,
+          "Tasks": [
+            {
+              "Name": "blink-led-task",
+              "Driver": "raw_exec",
+              "Config": {
+                "command": "python3",
+                "args": [
+                  "${NOMAD_ALLOC_DIR}/blink_led.py"
+                ]
+              },
+              "Artifacts": [
+                {
+                  "GetterSource": "https://raw.githubusercontent.com/willcharlton/premis-flask-hello-world/main/blink_led.py",
+                  "RelativeDest": "${NOMAD_ALLOC_DIR}"
+                }
+              ],
+              "Resources": {
+                "CPU": 100,
+                "MemoryMB": 128
+              },
+              "Services": [
                 {
                   "Name": "blink-led-service",
                   "PortLabel": "http",
@@ -50,7 +50,7 @@
               ],
               "Networks": [
                 {
-                  "ReservedPorts": [
+                  "DynamicPorts": [
                     {
                       "Label": "http",
                       "Value": 8080
@@ -58,9 +58,10 @@
                   ]
                 }
               ]
-          }
-        ]
-      }
-    ]
+            }
+          ]
+        }
+      ]
+    }
   }
-}
+  
