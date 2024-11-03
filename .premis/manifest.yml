@@ -11,3 +11,6 @@ jobs:
 
   - name: Node Environment
     file: jobs/env.premis
+
+  - name: Raspberry Pi Blink LED
+    file: jobs/blink-led.premis
