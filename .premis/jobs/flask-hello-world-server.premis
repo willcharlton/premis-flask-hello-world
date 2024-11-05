@@ -28,7 +28,7 @@
               "command": "/bin/sh",
               "args": [
                 "-c",
-                "FLASK_APP=${NOMAD_ALLOC_DIR}/hello.py FLASK_ENV=development python -m flask run --host=0.0.0.0"
+                "FLASK_APP=${NOMAD_ALLOC_DIR}/hello.py FLASK_ENV=development python3 -m flask run --host=0.0.0.0"
               ]
             },
             "KillTimeout": 60000000000,
