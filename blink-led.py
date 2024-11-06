@@ -1,14 +1,11 @@
 import requests
 import http.server
 import threading
-import RPi.GPIO as GPIO
 import time
 import os
 
-# Setup LED
-LED_PIN = 18  # Change to the correct GPIO pin number
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(LED_PIN, GPIO.OUT)
+# LED path
+LED_BRIGHTNESS_PATH = "/sys/class/leds/ACT/brightness"
 
 # PID file
 PID_FILE_PATH = "/tmp/blink-led.pid"
@@ -20,6 +17,14 @@ def create_pid_file():
 def remove_pid_file():
     if os.path.exists(PID_FILE_PATH):
         os.remove(PID_FILE_PATH)
+
+def set_led_brightness(value):
+    """Set the brightness of the ACT LED by writing to the sysfs file."""
+    try:
+        with open(LED_BRIGHTNESS_PATH, 'w') as led_file:
+            led_file.write(str(value))
+    except PermissionError:
+        print(f"Permission denied when trying to write to {LED_BRIGHTNESS_PATH}. Try running with elevated permissions.")
 
 # HTTP server for health check
 class HealthCheckHandler(http.server.BaseHTTPRequestHandler):
@@ -49,13 +54,12 @@ create_pid_file()
 # Blink the LED
 try:
     while True:
-        GPIO.output(LED_PIN, GPIO.HIGH)
-        time.sleep(1)
-        GPIO.output(LED_PIN, GPIO.LOW)
-        time.sleep(1)
+        set_led_brightness(1)  # Turn LED on
+        time.sleep(2)
+        set_led_brightness(0)  # Turn LED off
+        time.sleep(2)
 except KeyboardInterrupt:
     pass
 finally:
     # Cleanup
-    GPIO.cleanup()
     remove_pid_file()
