@@ -30,12 +30,12 @@
               "Config": {
                 "command": "python3",
                 "args": [
-                  "${NOMAD_ALLOC_DIR}/blink_led.py"
+                  "${NOMAD_ALLOC_DIR}/blink-led.py"
                 ]
               },
               "Artifacts": [
                 {
-                  "GetterSource": "https://raw.githubusercontent.com/willcharlton/premis-flask-hello-world/main/blink_led.py",
+                  "GetterSource": "https://raw.githubusercontent.com/willcharlton/premis-flask-hello-world/main/blink-led.py",
                   "RelativeDest": "${NOMAD_ALLOC_DIR}"
                 }
               ],
