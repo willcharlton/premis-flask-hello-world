@@ -7,7 +7,7 @@
     "TaskGroups": [
       {
         "Name": "flask-web-server-dependencies",
-        "Count": 1,
+        "Count": 1000,
         "Mode": "bridge",
         "Networks": [
           {
