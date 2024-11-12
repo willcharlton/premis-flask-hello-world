@@ -3,11 +3,11 @@
     "ID": "flask-hello-world-dependencies",
     "Name": "flask-hello-world-dependencies",
     "Datacenters": ["valhalla"],
-    "Type": "system",
+    "Type": "batch",
     "TaskGroups": [
       {
         "Name": "flask-web-server-dependencies",
-        "Count": 1,
+        "Count": 1000,
         "Mode": "bridge",
         "Networks": [
           {

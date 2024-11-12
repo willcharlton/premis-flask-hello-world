@@ -7,7 +7,7 @@
       "TaskGroups": [
         {
           "Name": "avahi-taskgroup",
-          "Count": 2,
+          "Count": 1000,
           "Networks": [
             {
               "ReservedPorts": [
