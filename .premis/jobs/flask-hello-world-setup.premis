@@ -9,18 +9,7 @@
       {
         "Name": "flask-web-server-dependencies",
         "Count": 4,
-        "Networks": [
-          {
-            "Mode": "host",
-            "DynamicPorts": [
-              {
-                "Label": "http",
-                "Value": 5000
-              }
-            ],
-            "ReservedPorts": []
-          }
-        ],
+        "Networks": [],
         "Tasks": [
           {
             "Name": "apt-update",
