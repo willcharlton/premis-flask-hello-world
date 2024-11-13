@@ -19,8 +19,8 @@
               "args": ["DEBIAN_FRONTEND=noninteractive", "apt", "update", "-y"]
             },
             "Resources": {
-              "CPU": 100,
-              "MemoryMB": 128,
+              "CPU": 200,
+              "MemoryMB": 256,
               "MemoryMax": -1
             },
             "KillTimeout": 600000000000
@@ -34,8 +34,8 @@
             },
             "KillTimeout": 60000000000,
             "Resources": {
-              "CPU": 100,
-              "MemoryMB": 128,
+              "CPU": 200,
+              "MemoryMB": 256,
               "MemoryMax": -1
             },
             "DependsOn": [
@@ -67,8 +67,8 @@
               }
             ],
             "Resources": {
-              "CPU": 100,
-              "MemoryMB": 128,
+              "CPU": 200,
+              "MemoryMB": 256,
               "MemoryMax": -1
             },
             "DependsOn": [
