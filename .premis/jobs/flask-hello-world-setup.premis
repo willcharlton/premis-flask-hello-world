@@ -4,14 +4,12 @@
     "Name": "flask-hello-world-dependencies",
     "Datacenters": ["valhalla"],
     "Type": "batch",
-    "Mode": "host",
     "TaskGroups": [
       {
         "Name": "flask-web-server-dependencies",
         "Count": 4,
         "Networks": [
           {
-            "Mode": "host",
             "DynamicPorts": [
               {
                 "Label": "http",
