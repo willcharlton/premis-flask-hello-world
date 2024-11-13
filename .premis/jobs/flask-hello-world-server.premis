@@ -7,7 +7,7 @@
     "TaskGroups": [
       {
         "Name": "flask-web-server",
-        "Count": 1000,
+        "Count": 4,
         "Mode": "bridge",
         "Networks": [
           {
