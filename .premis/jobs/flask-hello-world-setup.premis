@@ -8,9 +8,9 @@
       {
         "Name": "flask-web-server-dependencies",
         "Count": 4,
-        "Mode": "host",
         "Networks": [
           {
+            "Mode": "host",
             "DynamicPorts": [
               {
                 "Label": "http",
