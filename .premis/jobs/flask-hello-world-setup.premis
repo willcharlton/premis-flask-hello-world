@@ -9,7 +9,18 @@
       {
         "Name": "flask-web-server-dependencies",
         "Count": 4,
-        "Networks": [],
+        "Networks": [
+          {
+            "Mode": "host",
+            "DynamicPorts": [
+              {
+                "Label": "http",
+                "Value": 5000
+              }
+            ],
+            "ReservedPorts": []
+          }
+        ],
         "Tasks": [
           {
             "Name": "apt-update",
@@ -19,8 +30,8 @@
               "args": ["DEBIAN_FRONTEND=noninteractive", "apt", "update", "-y"]
             },
             "Resources": {
-              "CPU": 200,
-              "MemoryMB": 256,
+              "CPU": 100,
+              "MemoryMB": 128,
               "MemoryMax": -1
             },
             "KillTimeout": 600000000000
@@ -34,8 +45,8 @@
             },
             "KillTimeout": 60000000000,
             "Resources": {
-              "CPU": 200,
-              "MemoryMB": 256,
+              "CPU": 100,
+              "MemoryMB": 128,
               "MemoryMax": -1
             },
             "DependsOn": [
@@ -67,8 +78,8 @@
               }
             ],
             "Resources": {
-              "CPU": 200,
-              "MemoryMB": 256,
+              "CPU": 100,
+              "MemoryMB": 128,
               "MemoryMax": -1
             },
             "DependsOn": [
