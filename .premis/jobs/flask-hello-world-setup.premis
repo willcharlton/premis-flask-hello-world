@@ -4,7 +4,6 @@
     "Name": "flask-hello-world-dependencies",
     "Datacenters": ["valhalla"],
     "Type": "batch",
-    "Networks": [],
     "TaskGroups": [
       {
         "Name": "flask-web-server-dependencies",
