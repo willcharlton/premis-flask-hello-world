@@ -40,7 +40,13 @@
                         "Resources": {
                             "CPU": 50,
                             "MemoryMB": 64
-                        }
+                        },
+                        "DependsOn": [
+                            {
+                                "Task": "diode-config-dir-chmod",
+                                "Hard": true
+                            }
+                        ]
                     },
                     {
                         "Name": "diode-config-diode-files-chmod",
@@ -56,7 +62,13 @@
                         "Resources": {
                             "CPU": 50,
                             "MemoryMB": 64
-                        }
+                        },
+                        "DependsOn": [
+                            {
+                                "Task": "diode-config-diode-dir-chmod",
+                                "Hard": true
+                            }
+                        ]
                     },
                     {
                         "Name": "diode-config",
@@ -74,7 +86,13 @@
                         "Resources": {
                             "CPU": 50,
                             "MemoryMB": 64
-                        }
+                        },
+                        "DependsOn": [
+                            {
+                                "Task": "diode-config-diode-files-chmod",
+                                "Hard": true
+                            }
+                        ]
                     }
                 ]
             }
