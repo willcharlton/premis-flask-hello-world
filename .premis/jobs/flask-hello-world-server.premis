@@ -10,7 +10,13 @@
         "Count": 4,
         "Networks": [
           {
-            "Mode": "host"
+            "Mode": "host",
+            "ReservedPorts": [
+              {
+                "Label": "http",
+                "Value": 5000
+              }
+            ]
           }
         ],
         "Tasks": [
