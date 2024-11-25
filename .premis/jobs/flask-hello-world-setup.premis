@@ -7,6 +7,14 @@
     "TaskGroups": [
       {
         "Name": "flask-web-server-dependencies",
+        "Count": 4,
+        "Networks": [
+          {
+            "Mode": "bridge",
+            "ReservedPorts": [],
+            "DynamicPorts": []
+          }
+        ],
         "Tasks": [
           {
             "Name": "apt-update",
