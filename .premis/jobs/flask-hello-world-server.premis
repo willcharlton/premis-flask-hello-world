@@ -39,7 +39,6 @@
             "Services": [
               {
                 "Name": "flask-hello-world",
-                "PortLabel": "http",
                 "Provider": "nomad",
                 "Checks": [
                   {

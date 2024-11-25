@@ -26,7 +26,7 @@ The example job `.premis/jobs/flask-hello-world-server.premis` illustrates how y
 And adding:
 
 ```
-                    "PortLabel": "http",
+                "PortLabel": "http",
 ```
 
-to the `Services.Checks` block would accomplish this.
+to the `Services.flask-hello-world` block would accomplish this.
