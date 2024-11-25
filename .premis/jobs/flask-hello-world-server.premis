@@ -16,6 +16,7 @@
               {
                 "Label": "http",
                 "Value": 5000,
+                "HostPort": 5000,
                 "HostNetwork": "default"
               }
             ]
