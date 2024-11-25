@@ -23,10 +23,30 @@ The example job `.premis/jobs/flask-hello-world-server.premis` illustrates how y
         ],
 ```
 
-And adding:
+And setting the `Services` block to:
 
 ```
+              {
+                "Name": "flask-hello-world",
                 "PortLabel": "http",
+                "Provider": "nomad",
+                "Checks": [
+                  {
+                    "Name": "alive",
+                    "Type": "http",
+                    "PortLabel": "http",
+                    "Path": "/",
+                    "Port": 5000,
+                    "Interval": 30000000000,
+                    "Timeout": 50000000000
+                  }
+                ],
+                "CheckRestart": {
+                  "Grace": 20000000000,
+                  "Limit": 3,
+                  "IgnoreWarnings": false
+                }
+              }
 ```
 
 to the `Services.flask-hello-world` block would accomplish this.

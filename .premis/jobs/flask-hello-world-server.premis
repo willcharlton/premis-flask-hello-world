@@ -40,13 +40,13 @@
               {
                 "Name": "flask-hello-world",
                 "Provider": "nomad",
-                "Port": 5000,
+                "PortLabel": "http",
                 "Checks": [
                   {
                     "Name": "alive",
                     "Type": "http",
                     "Path": "/",
-                    "Port": 5000,
+                    "PortLabel": "http",
                     "Interval": 30000000000,
                     "Timeout": 50000000000
                   }
