@@ -10,16 +10,7 @@
         "Count": 4,
         "Networks": [
           {
-            "Mode": "bridge",
-            "DynamicPorts": [],
-            "ReservedPorts": [
-              {
-                "Label": "http",
-                "Value": 5000,
-                "HostPort": 5000,
-                "HostNetwork": "default"
-              }
-            ]
+            "Mode": "host"
           }
         ],
         "Tasks": [
