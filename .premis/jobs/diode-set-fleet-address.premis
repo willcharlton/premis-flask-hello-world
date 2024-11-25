@@ -11,12 +11,61 @@
                 "Name": "diode-config-taskgroup",
                 "Tasks": [
                     {
+                        "Name": "diode-config-dir-chmod",
+                        "Driver": "raw_exec",
+                        "User": "root",
+                        "Config": {
+                            "command": "chmod",
+                            "args": [
+                                "o+rx",
+                                "/home/will/.config"
+                            ]
+                        },
+                        "Resources": {
+                            "CPU": 50,
+                            "MemoryMB": 64
+                        }
+                    },
+                    {
+                        "Name": "diode-config-diode-dir-chmod",
+                        "Driver": "raw_exec",
+                        "User": "root",
+                        "Config": {
+                            "command": "chmod",
+                            "args": [
+                                "o+rx",
+                                "/home/will/.config/diode"
+                            ]
+                        },
+                        "Resources": {
+                            "CPU": 50,
+                            "MemoryMB": 64
+                        }
+                    },
+                    {
+                        "Name": "diode-config-diode-files-chmod",
+                        "Driver": "raw_exec",
+                        "User": "root",
+                        "Config": {
+                            "command": "chmod",
+                            "args": [
+                                "o+rx",
+                                "/home/will/.config/diode/*"
+                            ]
+                        },
+                        "Resources": {
+                            "CPU": 50,
+                            "MemoryMB": 64
+                        }
+                    },
+                    {
                         "Name": "diode-config",
                         "Driver": "raw_exec",
                         "User": "will",
                         "Config": {
                             "command": "/home/will/opt/diode/diode",
                             "args": [
+                                "-dbpath=/home/will/.config/diode/private.db",
                                 "config",
                                 "-set",
                                 "fleet=\"0x52f7343a1e39f84ca29ce4926ecba79259e83bf5\""
