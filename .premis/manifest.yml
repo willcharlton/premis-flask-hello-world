@@ -6,6 +6,12 @@ jobs:
   - name: Flask Hello World Server
     file: jobs/flask-hello-world-server.premis
 
+  - name: Diode Set Fleet Address
+    file: jobs/diode-set-fleet-address.premis
+
+  - name: Diode Publish Flask Server
+    file: jobs/diode-publish-flask-server.premis
+
   - name: Avahi MDNS
     file: jobs/mdns.premis
 

@@ -1,0 +1,39 @@
+{
+    "Job": {
+        "ID": "diode-publish-flask-server",
+        "Name": "diode-publish-flask-server",
+        "Datacenters": [
+            "valhalla"
+        ],
+        "Type": "service",
+        "Meta": {
+            "run_uuid": "${uuidv4()}"
+        },
+        "TaskGroups": [
+            {
+                "Name": "diode-publish-taskgroup",
+                "Mode": "host",
+                "Networks": [],
+                "Tasks": [
+                    {
+                        "Name": "diode-publish",
+                        "Driver": "raw_exec",
+                        "Config": {
+                            "command": "~/opt/diode/diode",
+                            "args": [
+                                "-dbpath=~/.config/diode/private.db",
+                                "publish",
+                                "-public",
+                                "5000:80"
+                            ]
+                        },
+                        "Resources": {
+                            "CPU": 100,
+                            "MemoryMB": 128
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}

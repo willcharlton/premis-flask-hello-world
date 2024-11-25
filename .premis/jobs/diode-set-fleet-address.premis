@@ -1,0 +1,34 @@
+{
+    "Job": {
+        "ID": "diode-set-fleet-address",
+        "Name": "diode-set-fleet-address",
+        "Datacenters": [
+            "valhalla"
+        ],
+        "Type": "batch",
+        "TaskGroups": [
+            {
+                "Name": "diode-config-taskgroup",
+                "Tasks": [
+                    {
+                        "Name": "diode-config",
+                        "Driver": "raw_exec",
+                        "User": "will",
+                        "Config": {
+                            "command": "~/opt/diode/diode",
+                            "args": [
+                                "config",
+                                "-set",
+                                "fleet=\"0x52f7343a1e39f84ca29ce4926ecba79259e83bf5\""
+                            ]
+                        },
+                        "Resources": {
+                            "CPU": 50,
+                            "MemoryMB": 64
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}
