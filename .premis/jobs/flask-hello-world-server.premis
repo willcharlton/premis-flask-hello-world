@@ -15,7 +15,8 @@
             "ReservedPorts": [
               {
                 "Label": "http",
-                "Value": 5000
+                "Value": 5000,
+                "HostNetwork": "default"
               }
             ]
           }
