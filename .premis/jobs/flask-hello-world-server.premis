@@ -40,6 +40,7 @@
               {
                 "Name": "flask-hello-world",
                 "Provider": "nomad",
+                "Port": 5000,
                 "Checks": [
                   {
                     "Name": "alive",
