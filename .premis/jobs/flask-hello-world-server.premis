@@ -10,10 +10,10 @@
         "Count": 4,
         "Networks": [
           {
+            "Mode": "bridge",
             "DynamicPorts": [],
             "ReservedPorts": [
               {
-                "Mode": "bridge",
                 "Label": "http",
                 "Value": 5000
               }
