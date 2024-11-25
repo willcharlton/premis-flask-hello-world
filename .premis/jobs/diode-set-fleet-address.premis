@@ -15,7 +15,7 @@
                         "Driver": "raw_exec",
                         "User": "will",
                         "Config": {
-                            "command": "~/opt/diode/diode",
+                            "command": "/home/will/opt/diode/diode",
                             "args": [
                                 "config",
                                 "-set",

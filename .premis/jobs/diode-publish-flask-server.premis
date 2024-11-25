@@ -18,10 +18,11 @@
                     {
                         "Name": "diode-publish",
                         "Driver": "raw_exec",
+                        "User": "will",
                         "Config": {
-                            "command": "~/opt/diode/diode",
+                            "command": "/home/will/opt/diode/diode",
                             "args": [
-                                "-dbpath=~/.config/diode/private.db",
+                                "-dbpath=/home/will/.config/diode/private.db",
                                 "publish",
                                 "-public",
                                 "5000:80"
