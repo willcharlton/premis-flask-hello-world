@@ -8,12 +8,12 @@
       {
         "Name": "flask-web-server",
         "Count": 4,
-        "Mode": "bridge",
         "Networks": [
           {
             "DynamicPorts": [],
             "ReservedPorts": [
               {
+                "Mode": "bridge",
                 "Label": "http",
                 "Value": 5000
               }
