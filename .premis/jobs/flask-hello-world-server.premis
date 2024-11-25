@@ -1,7 +1,7 @@
 {
   "Job": {
-    "ID": "flask-hello-world",
-    "Name": "flask-hello-world",
+    "ID": "flask-hello-world-server",
+    "Name": "flask-hello-world-server",
     "Datacenters": ["valhalla"],
     "Type": "service",
     "TaskGroups": [
