@@ -11,6 +11,22 @@
                 "Name": "diode-config-taskgroup",
                 "Tasks": [
                     {
+                        "Name": "diode-config-mkdir-chown",
+                        "Driver": "raw_exec",
+                        "User": "root",
+                        "Config": {
+                            "command": "sh",
+                            "args": [
+                                "-c",
+                                "mkdir -p /home/will/.config/diode && chown -R will:will /home/will/.config"
+                            ]
+                        },
+                        "Resources": {
+                            "CPU": 200,
+                            "MemoryMB": 256
+                        }
+                    },
+                    {
                         "Name": "diode-config-dir-chmod",
                         "Driver": "raw_exec",
                         "User": "root",
@@ -24,7 +40,13 @@
                         "Resources": {
                             "CPU": 200,
                             "MemoryMB": 256
-                        }
+                        },
+                        "DependsOn": [
+                            {
+                                "Task": "diode-config-mkdir-chown",
+                                "Hard": true
+                            }
+                        ]
                     },
                     {
                         "Name": "diode-config-diode-dir-chmod",
