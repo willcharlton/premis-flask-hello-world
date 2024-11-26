@@ -95,7 +95,7 @@
                     {
                         "Name": "diode-config",
                         "Driver": "raw_exec",
-                        "User": "will",
+                        "User": "root",
                         "Config": {
                             "command": "sh",
                             "args": [
@@ -110,6 +110,28 @@
                         "DependsOn": [
                             {
                                 "Task": "diode-config-diode-files-chmod",
+                                "Hard": true
+                            }
+                        ]
+                    },
+                    {
+                        "Name": "diode-config-user-chown",
+                        "Driver": "raw_exec",
+                        "User": "root",
+                        "Config": {
+                            "command": "sh",
+                            "args": [
+                                "-c",
+                                "chown -R will:will /home/will/.config || exit 0"
+                            ]
+                        },
+                        "Resources": {
+                            "CPU": 200,
+                            "MemoryMB": 256
+                        },
+                        "DependsOn": [
+                            {
+                                "Task": "diode-config",
                                 "Hard": true
                             }
                         ]
