@@ -22,8 +22,8 @@
                             ]
                         },
                         "Resources": {
-                            "CPU": 50,
-                            "MemoryMB": 64
+                            "CPU": 200,
+                            "MemoryMB": 256
                         }
                     },
                     {
@@ -38,8 +38,8 @@
                             ]
                         },
                         "Resources": {
-                            "CPU": 50,
-                            "MemoryMB": 64
+                            "CPU": 200,
+                            "MemoryMB": 256
                         },
                         "DependsOn": [
                             {
@@ -60,8 +60,8 @@
                             ]
                         },
                         "Resources": {
-                            "CPU": 50,
-                            "MemoryMB": 64
+                            "CPU": 200,
+                            "MemoryMB": 256
                         },
                         "DependsOn": [
                             {
@@ -84,8 +84,8 @@
                             ]
                         },
                         "Resources": {
-                            "CPU": 50,
-                            "MemoryMB": 64
+                            "CPU": 200,
+                            "MemoryMB": 256
                         },
                         "DependsOn": [
                             {
