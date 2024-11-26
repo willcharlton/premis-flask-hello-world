@@ -15,10 +15,10 @@
                         "Driver": "raw_exec",
                         "User": "root",
                         "Config": {
-                            "command": "chmod",
+                            "command": "sh",
                             "args": [
-                                "o+rx",
-                                "/home/will/.config"
+                                "-c",
+                                "chmod o+rx /home/will/.config"
                             ]
                         },
                         "Resources": {
@@ -31,10 +31,10 @@
                         "Driver": "raw_exec",
                         "User": "root",
                         "Config": {
-                            "command": "chmod",
+                            "command": "sh",
                             "args": [
-                                "o+rx",
-                                "/home/will/.config/diode"
+                                "-c",
+                                "chmod o+rx /home/will/.config/diode"
                             ]
                         },
                         "Resources": {
@@ -53,10 +53,10 @@
                         "Driver": "raw_exec",
                         "User": "root",
                         "Config": {
-                            "command": "chmod",
+                            "command": "sh",
                             "args": [
-                                "o+rx",
-                                "/home/will/.config/diode/*"
+                                "-c",
+                                "chmod o+rx /home/will/.config/diode/*"
                             ]
                         },
                         "Resources": {
@@ -75,12 +75,10 @@
                         "Driver": "raw_exec",
                         "User": "will",
                         "Config": {
-                            "command": "/home/will/opt/diode/diode",
+                            "command": "sh",
                             "args": [
-                                "-dbpath=/home/will/.config/diode/private.db",
-                                "config",
-                                "-set",
-                                "fleet=\"0x52f7343a1e39f84ca29ce4926ecba79259e83bf5\""
+                                "-c",
+                                "/home/will/opt/diode/diode -dbpath=/home/will/.config/diode/private.db config -set fleet=\"0x52f7343a1e39f84ca29ce4926ecba79259e83bf5\""
                             ]
                         },
                         "Resources": {
