@@ -18,7 +18,7 @@
                             "command": "sh",
                             "args": [
                                 "-c",
-                                "mkdir -p /home/will/.config/diode && chown -R will:will /home/will/.config"
+                                "(mkdir -p /home/will/.config/diode && chown -R will:will /home/will/.config) || exit 0"
                             ]
                         },
                         "Resources": {
@@ -34,7 +34,7 @@
                             "command": "sh",
                             "args": [
                                 "-c",
-                                "chmod o+rx /home/will/.config"
+                                "chmod o+rx /home/will/.config || exit 0"
                             ]
                         },
                         "Resources": {
@@ -56,7 +56,7 @@
                             "command": "sh",
                             "args": [
                                 "-c",
-                                "chmod o+rx /home/will/.config/diode"
+                                "chmod o+rx /home/will/.config/diode || exit 0"
                             ]
                         },
                         "Resources": {
@@ -78,7 +78,7 @@
                             "command": "sh",
                             "args": [
                                 "-c",
-                                "chmod o+rx /home/will/.config/diode/*"
+                                "chmod o+rx /home/will/.config/diode/* || exit 0"
                             ]
                         },
                         "Resources": {
