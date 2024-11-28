@@ -18,7 +18,7 @@
                     {
                         "Name": "diode-publish",
                         "Driver": "raw_exec",
-                        "User": "will",
+                        "User": "root",
                         "Config": {
                             "command": "/home/will/opt/diode/diode",
                             "args": [
