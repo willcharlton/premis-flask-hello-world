@@ -20,3 +20,6 @@ jobs:
 
   - name: Raspberry Pi Blink LED
     file: jobs/blink-led.premis
+
+  - name: Secrets Demo
+    file: jobs/device-secrets.premis
