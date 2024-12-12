@@ -10,7 +10,6 @@
       "TaskGroups": [
         {
           "Name": "led-taskgroup",
-          "Count": 4,
           "Mode": "bridge",
           "Networks": [
             {

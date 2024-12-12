@@ -7,7 +7,6 @@
     "TaskGroups": [
       {
         "Name": "flask-web-server",
-        "Count": 4,
         "Networks": [
           {
             "Mode": "host",
