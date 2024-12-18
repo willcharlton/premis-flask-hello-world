@@ -1,3 +1,4 @@
+import socket
 from datetime import datetime
 from flask import Flask
 
@@ -22,6 +23,14 @@ def hello_world():
 </html>
 '''
 
-
 if __name__ == '__main__':
+    # Dynamically fetch the local IP address
+    hostname = socket.gethostname()
+    local_ip = socket.gethostbyname(hostname)
+    
+    # Log the IP address
+    print(f" * Local IP address: http://{local_ip}:5000")
+    print(f" * Flask server started at {server_start_time}")
+
+    # Run the Flask server
     app.run(host='0.0.0.0', port=5000, debug=True)
