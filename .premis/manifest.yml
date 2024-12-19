@@ -15,7 +15,7 @@ jobs:
   - name: Avahi MDNS
     file: jobs/mdns.premis
 
-  - name: Node Environment
+  - name: Nomad Runtime Environment
     file: jobs/env.premis
 
   - name: Raspberry Pi Blink LED
