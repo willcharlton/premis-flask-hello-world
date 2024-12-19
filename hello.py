@@ -16,7 +16,7 @@ def hello_world():
     <title>Hello World</title>
 </head>
 <body>
-    <h1>Hello, World - Deploy On Push Is pretty cool!</h1>
+    <h1>Hello, World - MIKE IS HAVING COFFEE!</h1>
     <p>Server started at: { server_start_time }</p>
     <p>Page last rendered at: { datetime.now() }</p>
 </body>
